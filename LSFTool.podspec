@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                         LSFTool 是一个用于保存一些常用工具类的工具
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/LSFTool"
+  spec.homepage     = "http://LSFTool"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -91,8 +91,9 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  # spec.source_files  = "LSFTool"
+  spec.source_files  = "PodTestProject/PodTestProject/LSFTool.{h,m}"
+  # spec.exclude_files = "LSFTool/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
