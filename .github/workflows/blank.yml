@@ -26,7 +26,7 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: ruby/setup-ruby@9bc07a3af02ce5950e977cab8b77210dc3178328
         uses: ruby/setup-ruby@v1.51.1
-        with:
+#         with:
 
 #           ruby-version: # optional, default is default
 
