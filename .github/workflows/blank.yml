@@ -28,6 +28,7 @@ jobs:
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
         # Version of Cocoapods to install
-        version: 1.10.0
-        # Path to Podfile.lock file to determine Cocoapods version
-          podfile-path: # optional
+          version: 1.10.0
+      - name: run pod
+        run: |
+          pwd
