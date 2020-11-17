@@ -41,6 +41,8 @@ jobs:
         
       - name: run pod
         run: |
+          cat .netrc
+          
           # trunk
           pod trunk me
           
