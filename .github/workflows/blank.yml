@@ -44,3 +44,4 @@ jobs:
           
           # pod push
           pod trunk push LZTool.podspec --allow-warnings
+          
