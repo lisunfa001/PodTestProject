@@ -43,6 +43,7 @@ jobs:
           prerelease: false
       
     - name: pod push
+      run: |
         pod --version
         pod trunk push LSFTool.podspec --allow-warnings
         
