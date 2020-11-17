@@ -37,7 +37,7 @@ jobs:
       # shortcut version
       - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
         env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
     
 #       - name: CocoaPods Repo Push
 #         uses: maxep/pod-repo-push-action@0.1.2
