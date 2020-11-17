@@ -45,20 +45,29 @@ jobs:
 #         # Private repo source URL.
 #           repo-url: https://github.com/lisunfa001/PodTestProject.git
         
-      - name: run pod
-        run: |
+      - name: pod lib update
+  # You may pin to the exact commit or the version.
+  # uses: wlixcc/pod-lib-update-action@7f7343913f86321b71cb3c74f80998637d67dcb0
+        uses: wlixcc/pod-lib-update-action@1.0.0
+        with:
+          spec_repo_url: http://LSFTool
+          spec_file_path: PodTestProject/PodTestProject/LSFTool.{h,m}
+        
+        
+#       - name: run pod
+#         run: |
           
-          # pod register
-          # pod trunk register sunfa.li001@gmail.com
+#           # pod register
+#           # pod trunk register sunfa.li001@gmail.com
           
           
-          # trunk
-          # pod trunk me
+#           # trunk
+#           # pod trunk me
           
-          # update the .podspec file spec.version
-          version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
-          sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
+#           # update the .podspec file spec.version
+#           version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
+#           sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
           
-          # pod push
-          pod trunk push LSFTool.podspec --allow-warnings
+#           # pod push
+#           pod trunk push LSFTool.podspec --allow-warnings
           
