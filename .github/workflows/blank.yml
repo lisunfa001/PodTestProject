@@ -38,22 +38,28 @@ jobs:
       - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+      - name: CocoaPods Repo Push
+  # You may pin to the exact commit or the version.
+  # uses: maxep/pod-repo-push-action@b3ae7bd1d81216b0558908bc9f71ad5e78569fdd
+      - uses: maxep/pod-repo-push-action@0.1.2
+        with:
+        # Private repo source URL.
+          repo-url: https://github.com/lisunfa001/PodTestProject.git
         
-      - name: run pod
-        run: |
+#       - name: run pod
+#         run: |
           
-          # pod register
-          pod trunk register sunfa.li001@gmail.com
+#           # pod register
+#           pod trunk register sunfa.li001@gmail.com
           
-          cat .netrc
           
-          # trunk
-          pod trunk me
+#           # trunk
+#           pod trunk me
           
-          # update the .podspec file spec.version
-          version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
-          sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
+#           # update the .podspec file spec.version
+#           version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
+#           sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
           
-          # pod push
-          pod trunk push LSFTool.podspec --allow-warnings
+#           # pod push
+#           pod trunk push LSFTool.podspec --allow-warnings
           
