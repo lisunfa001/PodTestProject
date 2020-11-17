@@ -24,7 +24,7 @@ jobs:
     
     - name: update version
       run: |
-        export version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
+        version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
         sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
         echo "${{github.ref}}"
       
@@ -34,8 +34,8 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: $version
-          release_name: Release $version
+          tag_name: ${{ GITHUB_TOKEN }}
+          release_name: ${{ GITHUB_TOKEN }}
           
 #           tag_name: 0.0.10
 #           release_name: 0.0.10
