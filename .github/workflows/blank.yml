@@ -28,24 +28,24 @@ jobs:
         sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
         echo "${{github.ref}}"
       
-#     - name: Create Release
-#       id: create_release
-#       uses: actions/create-release@v1
-#       env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#       with:
-# #           tag_name: ${{ github.ref }}
-# #           release_name: Release ${{ github.ref }}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          tag_name: ${{ version }}
+          release_name: Release ${{ version }}
           
 #           tag_name: 0.0.10
 #           release_name: 0.0.10
 #           draft: false
 #           prerelease: false
       
-    - name: Publish to CocoaPod register and push
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
-      run: |
-        pod trunk push LSFTool.podspec --allow-warnings
+#     - name: Publish to CocoaPod register and push
+#       env:
+#         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+#       run: |
+#         pod trunk push LSFTool.podspec --allow-warnings
         
           
