@@ -33,6 +33,7 @@ jobs:
         git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
         git push --tags
         
+        
         pod trunk push LSFTool.podspec --allow-warnings
 #       - uses: actions/checkout@v2
       
