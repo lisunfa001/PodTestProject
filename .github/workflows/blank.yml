@@ -30,6 +30,7 @@ jobs:
         git config --global user.email "bot@langogo.ai"
         git config --global user.name "bot"
         git commit -am "update" --allow-empty
+        git status
         git push
 #        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
 #        git push --tags
