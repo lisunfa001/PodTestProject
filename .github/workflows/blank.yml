@@ -38,10 +38,9 @@ jobs:
       - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+    
       - name: CocoaPods Repo Push
-  # You may pin to the exact commit or the version.
-  # uses: maxep/pod-repo-push-action@b3ae7bd1d81216b0558908bc9f71ad5e78569fdd
-      - uses: maxep/pod-repo-push-action@0.1.2
+        uses: maxep/pod-repo-push-action@0.1.2
         with:
         # Private repo source URL.
           repo-url: https://github.com/lisunfa001/PodTestProject.git
