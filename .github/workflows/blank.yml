@@ -43,5 +43,5 @@ jobs:
           # pod trunk register sunfa.li001@gmail.com
           
           # pod push
-          pod trunk push LZTool.podspec --allow-warnings
+          pod trunk push LSFTool.podspec --allow-warnings
           
