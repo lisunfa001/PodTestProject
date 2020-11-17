@@ -93,7 +93,7 @@ Pod::Spec.new do |spec|
 
   # spec.source_files  = "LSFTool"
   # spec.source_files  = "PodTestProject/PodTestProject/LSFTool.{h,m}"
-    spec.source_files  = "LSFTool.{h,m}"
+    spec.source_files  = "PodTestProject/LSFTool.{h,m}"
   # spec.exclude_files = "LSFTool/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
