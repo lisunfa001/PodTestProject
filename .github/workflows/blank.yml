@@ -41,6 +41,9 @@ jobs:
         
       - name: run pod
         run: |
+          # trunk
+          pod trunk me
+          
           # update the .podspec file spec.version
           version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
           sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
