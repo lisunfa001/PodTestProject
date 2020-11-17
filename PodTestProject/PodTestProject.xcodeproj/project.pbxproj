@@ -17,6 +17,7 @@
 		921120E425625908008A9ABA /* PodTestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 921120E325625908008A9ABA /* PodTestProjectTests.m */; };
 		921120EF25625908008A9ABA /* PodTestProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 921120EE25625908008A9ABA /* PodTestProjectUITests.m */; };
 		9211210125625926008A9ABA /* LSFTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9211210025625926008A9ABA /* LSFTool.m */; };
+		9211214D25636F85008A9ABA /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 9211214C25636F85008A9ABA /* package.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		921120F025625908008A9ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		921120FF25625926008A9ABA /* LSFTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSFTool.h; sourceTree = "<group>"; };
 		9211210025625926008A9ABA /* LSFTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSFTool.m; sourceTree = "<group>"; };
+		9211214C25636F85008A9ABA /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = ../package.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		921120BB25625906008A9ABA = {
 			isa = PBXGroup;
 			children = (
+				9211214C25636F85008A9ABA /* package.json */,
 				921120C625625906008A9ABA /* PodTestProject */,
 				921120E225625908008A9ABA /* PodTestProjectTests */,
 				921120ED25625908008A9ABA /* PodTestProjectUITests */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9211214D25636F85008A9ABA /* package.json in Resources */,
 				921120D725625908008A9ABA /* LaunchScreen.storyboard in Resources */,
 				921120D425625908008A9ABA /* Assets.xcassets in Resources */,
 				921120D225625906008A9ABA /* Main.storyboard in Resources */,
