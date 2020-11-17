@@ -27,14 +27,16 @@ jobs:
         version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
         sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
         
-        git config --global user.email "bot@langogo.ai"
-        git config --global user.name "bot"
-        git commit -am "update icon" --allow-empty
-        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
-        git push --tags
+    - name: Create a Release
+      uses: actions/create-release@v1.1.4
+      with:
+        tag_name: cat package.json | grep version | awk -F '\"' '{print $4}'
+    # The name of the release. For example, `Release v1.0.1`
+        release_name: Release v1.0.1
         
-        
+    - name: pod push  
         pod trunk push LSFTool.podspec --allow-warnings
+        
 #       - uses: actions/checkout@v2
       
 #       - name: Setup Ruby, JRuby and TruffleRuby
