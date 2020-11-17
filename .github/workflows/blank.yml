@@ -19,25 +19,31 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
+    - name: Publish to CocoaPod register
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+      run: |
+        pod trunk push LSFTool.podspec --allow-warnings
+#       - uses: actions/checkout@v2
       
-      - name: Setup Ruby, JRuby and TruffleRuby
-        uses: ruby/setup-ruby@v1.51.1
-        with:
-          ruby-version: 2.7.2
+#       - name: Setup Ruby, JRuby and TruffleRuby
+#         uses: ruby/setup-ruby@v1.51.1
+#         with:
+#           ruby-version: 2.7.2
 
-      - name: Setup Cocoapods
-        uses: maxim-lobanov/setup-cocoapods@v1
-        with:
-          version: 1.10.0 
+#       - name: Setup Cocoapods
+#         uses: maxim-lobanov/setup-cocoapods@v1
+#         with:
+#           version: 1.10.0 
           
-      - name: Install Cocoapods
-        run: gem install cocoapods
+#       - name: Install Cocoapods
+#         run: gem install cocoapods
           
-      # shortcut version
-      - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
-        env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+#       # shortcut version
+#       - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
+#         env:
+#           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
     
 #       - name: CocoaPods Repo Push
 #         uses: maxep/pod-repo-push-action@0.1.2
@@ -45,15 +51,15 @@ jobs:
 #         # Private repo source URL.
 #           repo-url: https://github.com/lisunfa001/PodTestProject.git
         
-      - name: pod lib update
-  # You may pin to the exact commit or the version.
-  # uses: wlixcc/pod-lib-update-action@7f7343913f86321b71cb3c74f80998637d67dcb0
-        uses: wlixcc/pod-lib-update-action@1.0.0
-        with:
-          spec_repo_url: http://LSFTool
-          spec_file_path: PodTestProject/PodTestProject/LSFTool.{h,m}
-          lint_args: --allow-warnings
-          push_args: --allow-warnings 
+#       - name: pod lib update
+#   # You may pin to the exact commit or the version.
+#   # uses: wlixcc/pod-lib-update-action@7f7343913f86321b71cb3c74f80998637d67dcb0
+#         uses: wlixcc/pod-lib-update-action@1.0.0
+#         with:
+#           spec_repo_url: http://LSFTool
+#           spec_file_path: PodTestProject/PodTestProject/LSFTool.{h,m}
+#           lint_args: --allow-warnings
+#           push_args: --allow-warnings 
         
         
 #       - name: run pod
