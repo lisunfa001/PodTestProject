@@ -52,6 +52,8 @@ jobs:
         with:
           spec_repo_url: http://LSFTool
           spec_file_path: PodTestProject/PodTestProject/LSFTool.{h,m}
+          lint_args: --allow-warnings
+          push_args: --allow-warnings 
         
         
 #       - name: run pod
