@@ -31,7 +31,6 @@ jobs:
       uses: actions/create-release@v1.1.4
       with:
         tag_name: tag v0.0.4
-    # The name of the release. For example, `Release v1.0.1`
         release_name: Release v0.0.4
         
     - name: pod push
