@@ -34,7 +34,8 @@ jobs:
       - name: run pod
         run: |
           # update the .podspec file spec.version
-          cat package.json | grep version | awk -F '\"' '{print $4}'
+          version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
+          sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
           
           # pod push
           # pod trunk push LZTool.podspec --allow-warnings
