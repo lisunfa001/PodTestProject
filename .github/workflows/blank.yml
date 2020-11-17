@@ -22,84 +22,38 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Publish to CocoaPod register
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+    - name: update version
       run: |
         version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
         sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
-      
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-#           tag_name: ${{ github.ref }}
-#           release_name: Release ${{ github.ref }}
-          tag_name: 0.0.9
-          release_name: 0.0.9
-          draft: false
-          prerelease: false
-      
-    - name: pod push
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
-      run: |
-        pod trunk push LSFTool.podspec --allow-warnings
         
+        git config --global user.email "bot@langogo.ai"
+        git config --global user.name "bot"
+        git commit -am "update" --allow-empty
+        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
+        git push 
+        git push --tags
         
-#       - uses: actions/checkout@v2
-      
-#       - name: Setup Ruby, JRuby and TruffleRuby
-#         uses: ruby/setup-ruby@v1.51.1
-#         with:
-#           ruby-version: 2.7.2
-
-#       - name: Setup Cocoapods
-#         uses: maxim-lobanov/setup-cocoapods@v1
-#         with:
-#           version: 1.10.0 
-          
-#       - name: Install Cocoapods
-#         run: gem install cocoapods
-          
-#       # shortcut version
-#       - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
-#         env:
-#           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
     
-#       - name: CocoaPods Repo Push
-#         uses: maxep/pod-repo-push-action@0.1.2
-#         with:
-#         # Private repo source URL.
-#           repo-url: https://github.com/lisunfa001/PodTestProject.git
+      
+#     - name: Create Release
+#       id: create_release
+#       uses: actions/create-release@v1
+#       env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#           tag_name: $GITHUB_TOKEN
+#           release_name: $GITHUB_TOKEN
+          
+# #           tag_name: 0.0.10
+# #           release_name: 0.0.10
+#           draft: false
+#           prerelease: false
+      
+#     - name: Publish to CocoaPod register and push
+#       env:
+#         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+#       run: |
+#         pod trunk push LSFTool.podspec --allow-warnings
         
-#       - name: pod lib update
-#   # You may pin to the exact commit or the version.
-#   # uses: wlixcc/pod-lib-update-action@7f7343913f86321b71cb3c74f80998637d67dcb0
-#         uses: wlixcc/pod-lib-update-action@1.0.0
-#         with:
-#           spec_repo_url: http://LSFTool
-#           spec_file_path: PodTestProject/PodTestProject/LSFTool.{h,m}
-#           lint_args: --allow-warnings
-#           push_args: --allow-warnings 
-        
-        
-#       - name: run pod
-#         run: |
-          
-#           # pod register
-#           # pod trunk register sunfa.li001@gmail.com
-          
-          
-#           # trunk
-#           # pod trunk me
-          
-#           # update the .podspec file spec.version
-#           version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
-#           sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
-          
-#           # pod push
-#           pod trunk push LSFTool.podspec --allow-warnings
           
