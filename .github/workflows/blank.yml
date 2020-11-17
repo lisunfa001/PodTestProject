@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -30,10 +30,16 @@ jobs:
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
           version: 1.10.0 
-    
-      - name: run pod
+          
+      - name: Install Cocoapods
+        run: gem install cocoapods
+          
+      # shortcut version
+      - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        
+      - name: run pod
         run: |
           # update the .podspec file spec.version
           version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
