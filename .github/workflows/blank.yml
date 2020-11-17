@@ -38,4 +38,4 @@ jobs:
           sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
           
           # pod push
-          # pod trunk push LZTool.podspec --allow-warnings
+          pod trunk push LZTool.podspec --allow-warnings
