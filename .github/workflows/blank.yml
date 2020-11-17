@@ -50,10 +50,10 @@ jobs:
 #           draft: false
 #           prerelease: false
       
-#     - name: Publish to CocoaPod register and push
-#       env:
-#         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
-#       run: |
-#         pod trunk push LSFTool.podspec --allow-warnings
+    - name: Publish to CocoaPod register and push
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+      run: |
+        pod trunk push LSFTool.podspec --allow-warnings
         
           
