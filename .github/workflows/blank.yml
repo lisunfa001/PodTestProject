@@ -21,6 +21,13 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Publish to CocoaPod register
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
+      run: |
+        version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
+        sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
       
     - name: Create Release
       id: create_release
@@ -35,12 +42,7 @@ jobs:
           draft: false
           prerelease: false
       
-    - name: Publish to CocoaPod register
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPOD_TRUNK_TOKEN }}
-      run: |
-        version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
-        sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
+    - name: pod push
         pod --version
         pod trunk push LSFTool.podspec --allow-warnings
         
