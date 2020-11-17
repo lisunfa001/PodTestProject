@@ -39,21 +39,21 @@ jobs:
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
     
-      - name: CocoaPods Repo Push
-        uses: maxep/pod-repo-push-action@0.1.2
-        with:
-        # Private repo source URL.
-          repo-url: https://github.com/lisunfa001/PodTestProject.git
+#       - name: CocoaPods Repo Push
+#         uses: maxep/pod-repo-push-action@0.1.2
+#         with:
+#         # Private repo source URL.
+#           repo-url: https://github.com/lisunfa001/PodTestProject.git
         
       - name: run pod
         run: |
           
           # pod register
-          pod trunk register sunfa.li001@gmail.com
+          # pod trunk register sunfa.li001@gmail.com
           
           
           # trunk
-          pod trunk me
+          # pod trunk me
           
           # update the .podspec file spec.version
           version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
