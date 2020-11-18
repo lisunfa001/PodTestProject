@@ -30,6 +30,12 @@ jobs:
         git config --global user.email "bot@langogo.ai"
         git config --global user.name "bot"
         git config -l
+        
+        # delete branch
+        git push origin :refs/heads/main
+        # delete tag
+        git push origin :refs/tags/main
+        
         git add .
         git commit -am "update" --allow-empty
         git status
