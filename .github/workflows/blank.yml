@@ -32,6 +32,7 @@ jobs:
         git config -l
         
         git tag
+        git branch
         git tag -d ${{ github.ref }}
         
         git add --all
