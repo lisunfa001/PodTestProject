@@ -35,8 +35,8 @@ jobs:
         git status
         git pull
         git push
-        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
-        git push --tags
+#        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
+#        git push --tags
         
     
       
