@@ -27,29 +27,30 @@ jobs:
         version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
         sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
         
-#        git config --global user.email "bot@langogo.ai"
-#        git config --global user.name "bot"
-#        git status
-#        git commit -am "update" --allow-empty
-#        git status
-#        git push
-#        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
-#        git push --tags
+        git config --global user.email "bot@langogo.ai"
+        git config --global user.name "bot"
+        git config -l
+        git pull
+        git commit -am "update" --allow-empty
+        git status
+        git push
+        git tag `cat package.json | grep version | awk -F '\"' '{print $4}'`
+        git push --tags
         
     
       
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-#           tag_name: 0.0.12
-#           release_name: 0.0.12
-          draft: false
-          prerelease: false
+#     - name: Create Release
+#       id: create_release
+#       uses: actions/create-release@v1
+#       env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#           tag_name: ${{ github.ref }}
+#           release_name: Release ${{ github.ref }}
+# #           tag_name: 0.0.12
+# #           release_name: 0.0.12
+#           draft: false
+#           prerelease: false
       
 #     - name: Publish to CocoaPod register and push
 #       env:
