@@ -35,7 +35,7 @@ jobs:
         git commit -am "update" --allow-empty
         git status
         git pull
-        git push 
+        git push -u origin main
 #       git tag -d ${{ github.ref }}
 #       git push -d orgin ${{ github.ref }}
         
