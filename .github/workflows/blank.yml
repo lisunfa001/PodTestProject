@@ -29,7 +29,7 @@ jobs:
         git branch
         
         version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
-        sudo sed -i "s/spec.version.*/spec.version      = \"$version\"/" "./LSFTool.podspec"
+        sudo sed "s/spec.version.*/spec.version      = \"$version\"/" temp > LSFTool.podspec 
 
         git add --all
         git commit -am "update" --allow-empty
