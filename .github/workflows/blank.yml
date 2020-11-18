@@ -24,12 +24,12 @@ jobs:
     
     - name: update version
       run: |
-        version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
-        sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
-        
         git config --global user.email "bot@langogo.ai"
         git config --global user.name "bot"
         
+        version=`cat package.json | grep version | awk -F '\"' '{print $4}'`
+        sed "s/spec.version.*/spec.version      = \"$version\"/" LSFTool.podspec
+
         git tag
         git branch
         git add --all
